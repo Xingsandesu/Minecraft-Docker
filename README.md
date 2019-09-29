@@ -20,11 +20,14 @@
 
 #按照我的启动容器命令，您需要创建/root/server这个目录，也可以自行修改，指定一个目录，您也需要关闭防火墙，或者开放25565和22端口，也可以修改，指定一个端口
 
-本项目码头工人毂公开仓库地址
-使用tag修改镜像标签并push到1021461238/mcserver:tagname支持此项目
-tagname命名规则：
-［核心名］［版本号］［M最大内存］［附加服务］
-例如spigot14M4GSSH
-push命令就为
-docker push 1021461238/mcserver:spigot14M4GSSH
-                                                                                溪木容器云，让开服变得简单，QQ群：332973993
+#本项目码头工人毂公开仓库地址
+
+#使用tag修改镜像标签并push到1021461238/mcserver:tagname支持此项目
+
+#tagname命名规则：［核心名］［版本号］［M最大内存］［附加服务］
+
+#例如 spigot14M4GSSH
+
+#push命令示范 docker push 1021461238/mcserver:spigot14M4GSSH
+
+#溪木容器云，让开服变得简单，QQ群：332973993
