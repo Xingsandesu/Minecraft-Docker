@@ -15,7 +15,7 @@ RUN mkdir -p /sh
 
 #添加核心文件
 RUN wget -P /jar https://yun.teriri.cc/index.php/s/5Yqz3EED9FxfdxW/download & mv download catserver.jar
-RUN wget -P /jar https://yun.teriri.cc/index.php/s/5Yqz3EED9FxfdxW/download & mv download spigot1.14.4.jar
+RUN wget -P /jar https://www.teriri.net.cn/spigot-1.14.4-103.jar & mv spigot-1.14.4-103.jar spigot1.14.4.jar
 
 #添加脚本文件
 ADD start.sh /sh
