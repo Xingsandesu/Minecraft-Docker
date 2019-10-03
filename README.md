@@ -1,32 +1,32 @@
-# Minecraft-Docker
 提供Dockerflie模板并附构建教程，让开服变得更简单
 
+#构建方法 
+1.进入本项目github下载相关文件
+2.进入此文件夹并docker build -t name . （后面的点不要去掉，name改自己喜欢的名字）
+3.使用docker run -it -d --name 进程名字 -p 25565:25565 -p 22:22 -v /root/catserver:/server 镜像名字 启动容器
+4.使用docker exec -it 进程名字 /bin/bash 进入容器
 
 #使用方法
-
-#进入此文件夹并docker build -t name . （后面的点不要去掉，name改自己喜欢的名字）
-
-#使用docker run -it -d --name 进程名字 -p 25565:25565 -p 22:22 -v /root/catserver:/server 镜像名字 启动容器
-
-#使用docker exec -it 进程名字 /bin/bash 进入容器
-
-#容器内输入screen -x进入后台
+1.容器内输入run开启服务器 
+2.back返回控制台
 
 #关于k8s请自行按照官方文档部署
 
-
-#按照我的启动容器命令，您需要创建/root/server这个目录，也可以自行修改，指定一个目录，您也需要关闭防火墙，或者开放25565端口，也可以修改，指定一个端口
-
+#使用注意事项 
+1.按照我的启动容器命令，您需要创建/root/server这个目录，也可以自行修改，指定一个目录，您也需要关闭防火墙，或者开放25565和22端口，也可以修改，指定一个端口
+2.需要使用自己的核心请输入screen -S mc然后输入java -Xmx6G -jar 你的核心即可开启服务器,back返回控制台
 #本项目码头工人毂公开仓库地址 https://hub.docker.com/r/1021461238/mcserver
 
-#容器默认启动最大6G运存 可修改start.sh
+#更新记录:
+1.更换centos7.6作为底层
+2.解决screen问题 
+3.添加开服医生,有问题输入sh /sh/help.sh即可解决大部分问题 
+4.优化开服指令,现在只需要输入run即可完成开服,back回到控制台 
+5.默认核心更新为最新水龙头(1.14.4)
 
-#jar存储/jar sh脚本存储/sh 服务端存储/server
+#下一个更新准备计划 
+1.做轻量化 
+2.支持在线更新核心 
+3.添加交互式脚本,集成更多核心
 
 #溪木容器云，让开服变得简单，QQ群：332973993
-
-v1.1更新记录:
-1,删除sshd服务
-2,更换tmux为screen
-3,更换核心获取方法
-4,增加启动脚本
