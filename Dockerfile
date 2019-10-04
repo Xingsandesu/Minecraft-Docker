@@ -27,7 +27,8 @@ ADD start.sh /sh
 ADD back.sh /sh
 ADD run.sh /sh
 RUN chmod -x /sh/run.sh
-RUN chmod -x /sh/run.sh
+RUN chmod -x /sh/start.sh
+RUN chmod -x /sh/back.sh
 RUN ln -s /sh/run.sh /usr/bin/run
 RUN ln -s /sh/back.sh /usr/bin/back
 
