@@ -1,6 +1,15 @@
-FROM centos:7.6.1810                                                            
+FROM centos:7.6.1810                                                              
                                                                                 
-MAINTAINER DanDan_OvO 1021461238@qq.com                                         
+MAINTAINER DanDan_OvO 1021461238@qq.com     
+
+#设置系统编码
+RUN yum install kde-l10n-Chinese -y
+RUN yum install glibc-common -y
+RUN localedef -c -f UTF-8 -i zh_CN zh_CN.utf8
+#RUN export LANG=zh_CN.UTF-8
+#RUN echo "export LANG=zh_CN.UTF-8" >> /etc/locale.conf
+#ENV LANG zh_CN.UTF-8
+ENV LC_ALL zh_CN.UTF-8
                                                                                 
 #安 装 依 赖                                                                        
 RUN yum install -y screen wget java-1.8.0-openjdk*
@@ -15,16 +24,17 @@ ADD spigot1.14.4.jar /jar
 
 #添加脚本文件
 ADD start.sh /sh
+ADD back.sh /sh
+ADD run.sh /sh
+RUN chmod -x /sh/run.sh
+RUN chmod -x /sh/run.sh
+RUN ln -s /sh/run.sh /usr/bin/run
+RUN ln -s /sh/back.sh /usr/bin/back
 
-#设 置 工 作 目 录                                                                    
-WORKDIR /server    
-                                                                                                       
-#设置echo                                                                      
-RUN echo eula=true > eula.txt                                              
-                                                                                
+#设置服务端
+WORKDIR /server
+RUN echo eula=true > eula.txt
+
 #暴 露 端 口                                                                    
 EXPOSE 25565
-
-#启动脚本
-ENTRYPOINT screen -dm -S mc sh /sh/start.sh
 
